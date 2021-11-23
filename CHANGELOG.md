@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/zhaoyangkanshijie/gitHookExample/compare/v1.0.1...v1.0.3) (2021-11-23)
+
+
+### Tests
+
+* **package.json main.js readma:** test release ([9389563](https://github.com/zhaoyangkanshijie/gitHookExample/commit/93895637c6b9ed4d32fe7b3d3ed2acd5379715ab))
+
+
+### Others
+
+* **release:** 1.0.2 ([b1176f3](https://github.com/zhaoyangkanshijie/gitHookExample/commit/b1176f30e3b304f1b5ef5e8f62acfaafa3575164))
+
 ### [1.0.2](https://github.com/zhaoyangkanshijie/gitHookExample/compare/v1.0.1...v1.0.2) (2021-11-23)
 
 
