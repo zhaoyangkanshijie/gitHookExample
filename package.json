@@ -4,22 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ext .js src/",
-    "postinstall": "git config core.hooksPath hooks && echo \"hello\"",
+    "postinstall": "npx husky install",
+    "postinstallUserDefined": "git config core.hooksPath hooks && echo \"hello\"",
     "postinstallMac": "git config core.hooksPath hooks && chmod 700 hooks/*",
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath",
-    "prepare": "husky install",
+    "lint": "eslint --ext .js src/",
     "test": "echo \"test\"",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "lint-staged": "lint-staged",
-    "commit": "./node_modules/cz-customizable/standalone.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "echo 提交代码前需要先进行单元测试 && 可以做测试相关"
-    }
+    "commitMsg": "cd /node_modules/.bin/commitlint --edit"
   },
   "lint-staged": {
     "*.{js,vue,jsx,tsx}": [
