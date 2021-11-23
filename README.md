@@ -12,6 +12,7 @@
 * [NPM：常用命令的生命周期脚本](https://www.cnblogs.com/f1194361820/p/12509761.html)
 * [husky](https://typicode.github.io/husky)
 * [[前端采坑]lint-staged就是匹配不到文件](https://zhuanlan.zhihu.com/p/102104085)
+* [使用 commitizen 和 standard-version 自动化 JavaScript 项目版本控制](https://www.jianshu.com/p/acfdd4ca0104)
 
 ## 目录
 
@@ -21,6 +22,8 @@
 * [husky](#husky)
 * [lint-staged](#lint-staged)
 * [commitlint](#commitlint)
+* [commitizen](#commitizen)
+* [standard-version](#standard-version)
 
 ---
 
@@ -207,6 +210,10 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
     * 仅支持最新的最终ECMAScript标准，不支持实验性语法
     * 该编译器会将code解析为Eslint能懂的EsTree（ES2021语法等等）
 
+13. standard-version
+
+    版本管理自动化
+
 ## husky
 
 * 安装：npm install husky --save-dev
@@ -301,4 +308,30 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
   git commit -m 'feat: 增加 xxx 功能'
   git commit -m 'bug: 修复 xxx 功能'
   ```
+
+## commitizen
+
+* 安装：npm install -save-dev commitizen
+
+* 设置 changelog adapter
+
+  commitizen init cz-conventional-changelog --save-dev --save-exact
+
+  执行命令后会在package.json生成config配置
+
+* package.json
+
+  ```json
+  "scripts": {
+    "commit" : "git-cz"
+  }
+  ```
+
+* 使用
+
+  * git add .
+  * npm run commit 或者 git-cz
+  * 按提示填写即可
+
+## standard-version
 

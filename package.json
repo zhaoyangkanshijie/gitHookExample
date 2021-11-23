@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js src/",
     "test": "echo \"test\"",
     "precommit": "lint-staged",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "standard-version"
   },
   "lint-staged": {
     "src/*.{js,jsx,ts,tsx}": [
@@ -47,6 +48,7 @@
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.1",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "standard-version": "^9.3.2"
   }
 }
