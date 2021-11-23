@@ -11,7 +11,7 @@
 * [你真的懂package.json吗](https://www.jianshu.com/p/ceaa3c265895)
 * [NPM：常用命令的生命周期脚本](https://www.cnblogs.com/f1194361820/p/12509761.html)
 * [husky](https://typicode.github.io/husky)
-* [git-cz](https://www.npmjs.com/package/git-cz/v/4.2.0)
+* [[前端采坑]lint-staged就是匹配不到文件](https://zhuanlan.zhihu.com/p/102104085)
 
 ## 目录
 
@@ -19,6 +19,7 @@
 * [提交规范](#提交规范)
 * [工具](#工具)
 * [husky](#husky)
+* [lint-staged](#lint-staged)
 * [commitlint](#commitlint)
 
 ---
@@ -229,6 +230,37 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
 * 设置hook生效目录：git config core.hooksPath
 
 * mac添加权限：chmod +x .husky/{hookname}
+
+## lint-staged
+
+* 安装：npm install lint-staged --save-dev
+
+* package.json配置
+
+  ```json
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,ts,tsx}": [//要处理的文件路径和执行命令
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/*.{css,scss}": [
+      "prettier --write"
+    ]
+  }
+  ```
+
+* husky pre-commit 添加代码
+
+  ```shell
+  npm run precommit
+  ```
+
+* 注意
+
+  lint-staged只对git add后暂存区有变化的文件进行检测
 
 ## commitlint
 

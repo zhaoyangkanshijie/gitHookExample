@@ -12,22 +12,13 @@
     "test": "echo \"test\"",
     "precommit": "lint-staged"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/*.{js,jsx,ts,tsx}": [
-      "echo \"script\"",
       "prettier --write",
-      "eslint --fix",
-      "git add -n"
+      "eslint --fix"
     ],
     "src/*.{css,scss}": [
-      "echo \"style\"",
-      "prettier --write",
-      "git add -n"
+      "prettier --write"
     ]
   },
   "repository": {

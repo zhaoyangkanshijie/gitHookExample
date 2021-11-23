@@ -32,5 +32,6 @@ module.exports = {
   rules: {
     //'prettier/prettier': 'error',
     'linebreak-style': 'off',
+    'semi': ['error','always']
   },
 };
