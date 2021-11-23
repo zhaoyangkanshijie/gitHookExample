@@ -335,3 +335,12 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
 
 ## standard-version
 
+* 安装：npm install -D standard-version
+
+* package.json
+
+  ```json
+  "scripts": {
+    "release": "standard-version"
+  }
+  ```
