@@ -10,14 +10,24 @@
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath",
     "lint": "eslint --ext .js src/",
     "test": "echo \"test\"",
-    "commitlint": "commitlint --config commitlint.config.js -e -V",
-    "lint-staged": "lint-staged",
-    "commitMsg": "cd /node_modules/.bin/commitlint --edit"
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
-    "*.{js,vue,jsx,tsx}": [
-      "eslint --ext .js src/",
-      "git add"
+    "src/*.{js,jsx,ts,tsx}": [
+      "echo \"script\"",
+      "prettier --write",
+      "eslint --fix",
+      "git add -n"
+    ],
+    "src/*.{css,scss}": [
+      "echo \"style\"",
+      "prettier --write",
+      "git add -n"
     ]
   },
   "repository": {

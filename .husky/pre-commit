@@ -4,3 +4,5 @@
 npm run test
 
 npm run lint
+
+lint-staged

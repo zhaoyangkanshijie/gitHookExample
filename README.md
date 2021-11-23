@@ -19,6 +19,7 @@
 * [提交规范](#提交规范)
 * [工具](#工具)
 * [husky](#husky)
+* [commitlint](#commitlint)
 
 ---
 
@@ -228,3 +229,44 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
 * 设置hook生效目录：git config core.hooksPath
 
 * mac添加权限：chmod +x .husky/{hookname}
+
+## commitlint
+
+* 安装：npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+* 配置
+
+  根目录commitlint.config.js
+  ```js
+  module.exports = {
+    extends: [
+      "@commitlint/config-conventional"
+    ],
+    rules: {
+      'type-enum': [2, 'always', [
+        'upd', 'feat', 'fix', 'refactor', 'docs', 'chore', 'style', 'revert'
+      ]],
+      'type-case': [0],
+      'type-empty': [0],
+      'scope-empty': [0],
+      'scope-case': [0],
+      'subject-full-stop': [0, 'never'],
+      'subject-case': [0, 'never'],
+      'header-max-length': [0, 'always', 72]
+    }
+  };
+  ```
+
+* husky commit-msg 添加代码
+
+  ```shell
+  ./node_modules/.bin/commitlint --edit
+  ```
+
+* 提交样例
+
+  ```git
+  git commit -m 'feat: 增加 xxx 功能'
+  git commit -m 'bug: 修复 xxx 功能'
+  ```
+
