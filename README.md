@@ -11,6 +11,7 @@
 * [你真的懂package.json吗](https://www.jianshu.com/p/ceaa3c265895)
 * [NPM：常用命令的生命周期脚本](https://www.cnblogs.com/f1194361820/p/12509761.html)
 * [husky](https://typicode.github.io/husky)
+* [git-cz](https://www.npmjs.com/package/git-cz/v/4.2.0)
 
 ## 目录
 
@@ -186,6 +187,24 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
 
     提示定义输入标准的git commit 内容
 
+9. eslint-plugin-vue
+
+    vue.js的Eslint插件（查找vue语法错误，发现错误指令，查找违规风格指南）
+
+10. eslint-plugin-prettier
+
+    运行更漂亮的Eslint，使prettier规则优先级更高，Eslint优先级低
+
+11. eslint-config-prettier
+
+    让所有可能与prettier规则存在冲突的Eslint rules失效，并使用prettier进行代码检查
+
+12. @babel/eslint-parser
+
+    * 该解析器允许你使用Eslint校验所有babel code
+    * 仅支持最新的最终ECMAScript标准，不支持实验性语法
+    * 该编译器会将code解析为Eslint能懂的EsTree（ES2021语法等等）
+
 ## husky
 
 * 安装：npm install husky --save-dev
@@ -203,3 +222,9 @@ post-index-change        索引被写入到read-cache.c do_write_locked_index后
 * git跳过检查：git commit -m "yolo!" --no-verify
 
 * husky跳过检查：HUSKY=0 git push # yolo!
+
+* 测试hook：exit 1
+
+* 设置hook生效目录：git config core.hooksPath
+
+* mac添加权限：chmod +x .husky/{hookname}

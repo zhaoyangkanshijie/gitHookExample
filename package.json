@@ -9,7 +9,23 @@
     "postinstallMac": "git config core.hooksPath hooks && chmod 700 hooks/*",
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath",
     "prepare": "husky install",
-    "test": "echo \"test\""
+    "test": "echo \"test\"",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "lint-staged": "lint-staged",
+    "commit": "./node_modules/cz-customizable/standalone.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "echo 提交代码前需要先进行单元测试 && 可以做测试相关"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue,jsx,tsx}": [
+      "eslint --ext .js src/",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -19,8 +35,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.3.0",
     "eslint": "^7.31.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "husky": "^7.0.4"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.1",
+    "prettier": "^2.4.1"
   }
 }
