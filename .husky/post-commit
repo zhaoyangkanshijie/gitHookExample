@@ -1,5 +1,5 @@
-#!/bin/sh
+﻿#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 #npm run release
-echo "post-commit"
+
